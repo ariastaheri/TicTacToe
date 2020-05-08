@@ -2,9 +2,10 @@ main {
     display: grid;
     grid-template-columns: 200px 200px 200px;
     grid-gap: 0px;
+    margin:10px 10px 0 0;
 }
 
 app-square{
-    border: 1px gray solid;
+    border: 1px gray solid !important;
     height: 200px;
 }

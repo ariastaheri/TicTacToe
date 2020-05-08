@@ -1,13 +1,14 @@
 <h1>Current Player: {{ player }}</h1>
 
-<button (click)="newGame()">Start New Game</button>
+<button nbButton outline status="danger" (click)="newGame()">Start New Game</button>
 
 <h2 *ngIf="winner">Player {{ winner }} won the game!</h2>
+<h6 *ngIf="winner">Please press the button to start a new game.</h6>
 
 <main>
     <app-square
         *ngFor="let value of squares; let i = index"
         [value]="value"
-        (click)="makeMove(i)">
+        (click)="!gameOver && makeMove(i)">
     </app-square>
 </main>
