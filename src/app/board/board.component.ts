@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
 
-  squares: any[];
+  squares: string[];
   xIsNext: boolean;
   winner: string;
 
@@ -32,7 +32,6 @@ export class BoardComponent implements OnInit {
       this.squares.splice(index, 1, this.player);
       this.xIsNext = !this.xIsNext;
     }
-
     this.winner = this.calculateWinner();
   }
 
@@ -46,16 +45,16 @@ export class BoardComponent implements OnInit {
       [2, 5, 8],
       [0, 4, 8],
       [2, 4, 6]
-    ]
+    ];
 
-    for(let i = 0; i < winningLines.length; i++){
-      const[valA, valB, valC] = winningLines[i];
+    for ( let i = 0; i < winningLines.length; i++ ){
+      const [valA, valB, valC] = winningLines[i];
       if(this.squares[valA] &&
         this.squares[valA] === this.squares[valB] &&
         this.squares[valA] === this.squares[valC]) {
           return this.squares[valA];
-        }
-        return null;
+        }  
     }
+    return null;
   }
 }
